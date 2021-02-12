@@ -1,0 +1,11 @@
+[07-Jan-2021 09:24:50 America/Boise] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home3/iscovgf2/public_html/admincore/model/conexion.php on line 9
+[07-Jan-2021 10:09:28 America/Boise] PHP Parse error:  syntax error, unexpected end of file in /home3/iscovgf2/public_html/admincore/controller/session.php on line 66
+[07-Jan-2021 10:11:24 America/Boise] PHP Parse error:  syntax error, unexpected end of file in /home3/iscovgf2/public_html/admincore/controller/session.php on line 66
+[07-Jan-2021 10:13:17 America/Boise] PHP Parse error:  syntax error, unexpected end of file in /home3/iscovgf2/public_html/admincore/controller/session.php on line 66
+[07-Jan-2021 10:15:36 America/Boise] PHP Parse error:  syntax error, unexpected end of file in /home3/iscovgf2/public_html/admincore/controller/session.php on line 60
+[07-Jan-2021 10:17:18 America/Boise] PHP Parse error:  syntax error, unexpected end of file in /home3/iscovgf2/public_html/admincore/controller/session.php on line 60
+[07-Jan-2021 10:17:22 America/Boise] PHP Parse error:  syntax error, unexpected end of file in /home3/iscovgf2/public_html/admincore/controller/session.php on line 60
+[07-Jan-2021 11:07:59 America/Boise] PHP Parse error:  syntax error, unexpected end of file in /home3/iscovgf2/public_html/admincore/controller/session.php on line 60
+[07-Jan-2021 11:12:51 America/Boise] PHP Parse error:  syntax error, unexpected end of file in /home3/iscovgf2/public_html/admincore/controller/session.php on line 60
+[07-Jan-2021 11:13:13 America/Boise] PHP Parse error:  syntax error, unexpected end of file in /home3/iscovgf2/public_html/admincore/controller/session.php on line 60
+[07-Jan-2021 11:13:19 America/Boise] PHP Parse error:  syntax error, unexpected end of file in /home3/iscovgf2/public_html/admincore/controller/session.php on line 60

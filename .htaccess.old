@@ -1,0 +1,145 @@
+# Forzar HTTPS
+
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+Header set Content-Security-Policy "default-src 'self';"
+
+# Fin 
+
+# Evitar navegaci��n de carpetas
+
+Options -Indexes
+
+# Fin
+
+# Denegar acceso a htaccess
+
+<Files .htaccess>
+Order allow,deny
+Deny from all
+</Files>
+
+# Fin
+
+# Denegar acceso a conexion.php
+
+<Files conexion.php>
+Order allow,deny
+Deny from all
+</Files>
+
+# Fin
+
+# Evitar escaneos y cualquier intento de manipulaci��n malintencionada  
+# de la URL. Con esta regla es imposible lanzar ataques de inyecci��n (SQL, XSS, etc)  
+
+RewriteCond %{HTTP_USER_AGENT} ^$ [OR]  
+RewriteCond %{HTTP_USER_AGENT} ^(-|\.|') [OR]  
+RewriteCond %{HTTP_USER_AGENT} ^(.*)(<|>|%3C|%3E)(.*) [NC,OR]  
+RewriteCond %{HTTP_USER_AGENT} ^(java|curl|wget)(.*) [NC,OR]  
+RewriteCond %{HTTP_USER_AGENT} ^(.*)(libwww-perl|libwwwperl|snoopy|curl|wget|winhttp|python|nikto|scan|clshttp|archiver|loader|email|harvest|fetch|extract|grab|miner|suck|reaper|leach)(.*) [NC,OR]  
+   
+RewriteCond %{REQUEST_URI} ^(/,|/;|/<|/>|/'|/`|/%2C|/%3C|/%3E|/%27|/////) [NC,OR]  
+RewriteCond %{HTTP_REFERER} ^(.*)(%00|%08|%09|%0A|%0B|%0C|%0D|%0E|%0F|%2C|<|>|'|%3C|%3E|%26%23|%27|%60)(.*) [NC,OR]  
+RewriteCond %{QUERY_STRING} ^(.*)(%00|%08|%09|%0A|%0B|%0C|%0D|%0E|%0F|%2C|%3C|%3E|%27|%26%23|%60)(.*) [NC,OR]  
+RewriteCond %{QUERY_STRING} ^(.*)('|-|<|>|,|/|\\|\.a|\.c|\.t|\.d|\.p|\.i|\.e|\.j)(.*) [NC,OR]  
+RewriteCond %{HTTP_COOKIE} ^(.*)(<|>|'|%3C|%3E|%27)(.*) [NC]  
+
+## Denegar el acceso a robots da�0�9inos, browsers offline, etc  
+
+RewriteBase /  
+RewriteCond %{HTTP_USER_AGENT} ^Anarchie [OR]  
+RewriteCond %{HTTP_USER_AGENT} ^ASPSeek [OR]  
+RewriteCond %{HTTP_USER_AGENT} ^attach [OR]  
+RewriteCond %{HTTP_USER_AGENT} ^autoemailspider [OR]  
+RewriteCond %{HTTP_USER_AGENT} ^Xaldon\ WebSpider [OR]  
+RewriteCond %{HTTP_USER_AGENT} ^Xenu [OR]  
+RewriteCond %{HTTP_USER_AGENT} ^Zeus.*Webster [OR]  
+RewriteCond %{HTTP_USER_AGENT} ^Zeus  
+
+##redireccionar a los robots a otra web  
+
+RewriteRule ^.*$ http://www.otraweb.com [R,L]  
+
+# Protegerse contra los ataques DOS limitando el tama�0�9o de subida de archivos  
+
+LimitRequestBody 10240000  
+
+# Encabezados de seguridad
+
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Strict-Transport-Security "max-age=31536000; includeSubdomains; preload"
+Header set X-XSS-Protection "1; mode=block"
+Header set X-Content-Type-Options nosniff
+Header set Referrer-Policy: no-referrer-when-downgrade
+# Header set Feature-Policy: geolocation 'self' https://discoverycenterpa.net; microphone 'none'
+# Header set Content-Security-Policy: default-src https:
+
+
+# Fin
+
+# Reduccion en carga de tiempo
+
+FileETag none
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+ExpiresActive On
+ExpiresByType image/jpg "access 1 year"
+ExpiresByType text/html "access 2 day"
+
+# Fin
+
+
+# Ip Permitidas
+
+deny from all
+allow from 168.197.189.216
+allow from 168.197.189.217
+allow from 168.197.189.218
+allow from 168.197.189.219
+allow from 168.197.189.220
+allow from 168.197.189.221
+allow from 168.197.189.222
+allow from 168.197.189.223
+allow from 168.197.189.224
+allow from 168.197.189.225
+allow from 168.197.189.226
+allow from 168.197.189.227
+allow from 168.197.189.228
+allow from 168.197.189.229
+
+# Fin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
