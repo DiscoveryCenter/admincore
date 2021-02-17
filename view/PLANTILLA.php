@@ -22,7 +22,7 @@
 
     <?php require_once "sidebar.php";?>
  <!-- page content -->
- <div class="right_col" role="main">
+ <div class="col-md-10 offset-md-2" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">

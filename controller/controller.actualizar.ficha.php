@@ -49,22 +49,8 @@ if ($post) {
         $archivo = $directorio.basename ($_FILES['archivo']['name']);
         $tipoArchivo = $_FILES['archivo']['type'];
 
-        if (!(strpos($tipoArchivo, "pdf"))) {
-            echo '
-            <script type="text/javascript">
-            swal({
-                title: "Error",
-                text: "Solo se aceptan archivos en formato PDF",
-                icon: "warning",
-                button: "Aceptar",
-            }).then(function() {
-                window.location = "../view/view.ficha.tecnica.php";
-            });
-            </script>
-            ';
-        }else {
             move_uploaded_file($_FILES['archivo']['tmp_name'], $archivo);
-            $nombreArchivo = rename($archivo, "../../fitec/fichas/".$codigoProducto.".pdf");
+            $nombreArchivo = @rename($archivo, "../../fitec/fichas/".$codigoProducto.".pdf");
 
             $consulta = "UPDATE fichastecnicas SET
                 item = '$nombreProducto',
@@ -76,7 +62,10 @@ if ($post) {
                 WHERE id = '$id';
             ";
 
+            
+
             if (mysqli_query($mysqli, $consulta)){
+                
                 echo '
                 <script type="text/javascript">
                     swal({
@@ -104,7 +93,6 @@ if ($post) {
                 ';
             }
 
-        } # Fin de la verificacion de archivo tipo pdf
 
 }else { # Muestra el alert si hay 
     echo '

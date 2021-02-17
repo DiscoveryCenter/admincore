@@ -28,7 +28,13 @@ if(isset($_GET['id'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intranet | Dashboard</title>
-    <?php ?> <!-- Header contiene los css-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+    <script>
+$(function() {
+    $("img.lazy").lazyload({effect : "fadeIn"});
+});
+</script>
 </head>
 
 <body class="nav-md">
@@ -46,7 +52,7 @@ if(isset($_GET['id'])){
 
     <?php require_once "sidebar.php";?>
  <!-- page content -->
- <div class="right_col" role="main">
+    <div class="col-md-10 offset-md-2" role="main">
           <div class="">
             <div class="page-title">
              
@@ -72,11 +78,10 @@ if(isset($_GET['id'])){
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <div class="row" style="">
-                  <div class="col-md-12">
-                    <form name ="formulario" id="btn-submit" data-parsley-validate="" 
+                    <div class="row">
+                     <div class="col-md-6">
+                            <form name ="formulario" id="btn-submit" data-parsley-validate="" 
                     class="form-horizontal form-label-left" method="POST" action="../controller/controller.actualizar.ficha.php" enctype="multipart/form-data">
-                    <h2 class="text text-center mb-5">Solo se adminten archivos en formato PDF.</h2>
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="nombreProducto" >Nombre del producto <span class="required">*</span>
                         </label>
@@ -123,7 +128,7 @@ if(isset($_GET['id'])){
                         <div class="item form-group">
                           <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Ficha Técnica PDF</label>
                           <div class="col-md-6 col-sm-6 ">
-                            <input id="middle-name" type="file" value="" required name="archivo" class="form-control"  accept="pdf">
+                            <input id="middle-name" type="file" value="pdf" name="archivo" class="form-control"  accept="">
                           </div>
 
                         </div>
@@ -133,7 +138,10 @@ if(isset($_GET['id'])){
                              class="form-control" type="checkbox"  data-parsley-id="9">
                           </div>
                         </div>
-
+                        <div class="col-md-6">
+                         <img class=" lazy float-center img-responsive"
+                          src="https://www.discoverycenterpa.net/imagenes/<?php echo "{$fila['upc']}.jpg"?>" width="250px">
+                        </div>
                      
                         <div class="col-md-6 col-sm-6 offset-md-3"> 
                         <div class="ln_solid mb-3"></div>
@@ -142,30 +150,12 @@ if(isset($_GET['id'])){
                          <i class="fas fa-upload"></i> Cargar</button>
                       </div>
                     </form>
+                     </div> 
+ 
+               
                   </div><!--./fin del x_panel-->
               </div>
             </div>
-
-            <div class="row">
-              <div class="col-md-12 col-sm-12">
-              <div class="x_panel"> <!--inicio del panel-->
-                  <div class="x_title">
-                    <h2>Hojas de vida</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    
-                  
-                </div><!--./fin del x_panel-->
-              </div>
-            </div>
-
               </div>
             </div>
           </div>
