@@ -62,15 +62,13 @@ if ($post) {
                 WHERE id = '$id';
             ";
 
-            
-
             if (mysqli_query($mysqli, $consulta)){
-                
+                require_once ("../phpmailer/mail.actualizar.ficha.php");
                 echo '
                 <script type="text/javascript">
                     swal({
                         title: "Exito",
-                        text: "Los datos fueron cargados exitosamente",
+                        text: "Los datos fueron actualizados exitosamente",
                         icon: "success",
                         button: "Aceptar",
                     }).then(function() {

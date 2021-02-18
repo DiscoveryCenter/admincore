@@ -227,7 +227,8 @@
                             ";
                             if($fila['estado_contenido'] === "Verificado"){
                               echo "<td>
-                                      <span class='badge badge-success'>
+                              <span class='badge badge-success' data-toggle='tooltip' data-placement='top' 
+                              title='El contenido ferificado por: {$fila['solicitado_por']}'>
                                           {$fila['estado_contenido']}
                                       </span>    
                                   </td>";
@@ -243,20 +244,29 @@
                           echo "
                           <td>
                              <form class='form-inline' action='../controller/controller.acciones.fichas.php' method='POST'>
+                             <span class='' data-toggle='tooltip' data-placement='top' 
+                             title='Ver'>
                               <a class=' btn btn-outline-primary btn-sm' href='https://discoverycenterpa.net/fitec/fichas/{$fila['archivo']}'
                                 target='_blank'rel='noopener noreferrer'>
                                   <i class='fas fa-eye'></i>
                               </a>
+                              </span>
 
+                              <span class='' data-toggle='tooltip' data-placement='top' 
+                              title='Actualizar'>
                               <a class=' btn btn-outline-success btn-sm' 
                               href='http://localhost/admincore/view/view.actualiza.ficha.tecnica.php?id={$fila['id']}'>
                                 <i class='fas fa-redo'></i>
                             </a>
+                            </span>
 
+                            <span class='' data-toggle='tooltip' data-placement='top' 
+                            title='Borrar'>
                                 <button class='btn btn-outline-danger btn-sm' type='submit' name='accion' value='borrar'>
                                   <i class='far fa-trash-alt'></i>        
                                 </button>
-
+                             </span>
+                             
                               </form>
 
                              </td>

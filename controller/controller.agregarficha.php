@@ -100,6 +100,7 @@ if ($post) {
                     '$nombreArchivo' )";
                 
                     if (mysqli_query($mysqli, $consulta)){
+                        require_once ("../phpmailer/enviar.php");
                         echo '
                         <script type="text/javascript">
                             swal({
