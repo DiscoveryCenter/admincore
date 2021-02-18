@@ -255,7 +255,7 @@
                               <span class='' data-toggle='tooltip' data-placement='top' 
                               title='Actualizar'>
                               <a class=' btn btn-outline-success btn-sm' 
-                              href='http://localhost/admincore/view/view.actualiza.ficha.tecnica.php?id={$fila['id']}'>
+                              href='view.actualiza.ficha.tecnica.php?id={$fila['id']}'>
                                 <i class='fas fa-redo'></i>
                             </a>
                             </span>
@@ -266,7 +266,7 @@
                                   <i class='far fa-trash-alt'></i>        
                                 </button>
                              </span>
-                             
+
                               </form>
 
                              </td>
