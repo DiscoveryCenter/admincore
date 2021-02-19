@@ -82,7 +82,7 @@ if ($post) {
             }else {
                 if (move_uploaded_file($_FILES['archivo']['tmp_name'], $archivo)) {
                     # code...
-                    $nombreArchivo = rename($archivo, "../../fitec/fichas/".$codigoProducto.".pdf");
+                    $nombreArchivo = @rename($archivo, "../../fitec/fichas/".$codigoProducto.".pdf");
 
                     $consulta = "INSERT INTO fichastecnicas
                     (item,
@@ -97,7 +97,7 @@ if ($post) {
                     '$modeloProducto',
                     '$estadoProducto',
                     '$solicitadoPor',
-                    '$nombreArchivo' )";
+                    '$codigoProducto.pdf' )";
                 
                     if (mysqli_query($mysqli, $consulta)){
                         require_once ("../phpmailer/enviar.php");

@@ -34,49 +34,7 @@ if (isset($_POST['accion'])) {
     $upc = filter_input(INPUT_POST, 'upc', FILTER_SANITIZE_NUMBER_INT);
     $accion = filter_input(INPUT_POST, 'accion', FILTER_SANITIZE_STRING);
 
-    switch ($accion) {
-       
-        case 'actualizarDatos':
-            $consulta = "UPDATE fichastecnicas SET
-                fecha = '$fecha',
-                estado = 'Contratado'
-                WHERE id = '$id' ";
-            $actualizado = mysqli_query($mysqli, $consulta);
-
-            if ($actualizado) {
-                echo '
-                <script type="text/javascript">
-                swal({
-                    title: "Exito !",
-                    text: "Registro actualizado exitosamente",
-                    icon: "success",
-                    button: "Aceptar",
-                }).then(function() {
-                    window.location = "../view/view.ficha.tecnica.php";
-                });
-                </script>
-                
-                ';
-            }else {
-                echo '
-                <script type="text/javascript">
-                swal({
-                    title: "Error!",
-                    text: "No se actualizó el registro",
-                    icon: "warning",
-                    button: "Aceptar",
-                }).then(function() {
-                    window.location = "../view/view.ficha.tecnica.php";
-                });
-                </script>
-                
-                ';
-            }
-
-            break;
-
-        case 'borrar':
-            $borrar ="DELETE FROM fichastecnicas WHERE id = $id ";
+            $borrar ="DELETE FROM fichastecnicas WHERE id = '$id' ";
             $borrado = mysqli_query($mysqli, $borrar);
 
             if ($borrado) {
@@ -108,10 +66,6 @@ if (isset($_POST['accion'])) {
                 
                 ';
             }
-
-            break;
-
-    }
 
 }else {
     header("location: ../view/view.ficha.tecnica.php");

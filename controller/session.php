@@ -62,18 +62,7 @@ if ($csrf === $csrfSession) {
                 $_SESSION['role'] = $row['role'];
                 $_SESSION['status'] = $row['status'];
                 
-                echo '
-                <script type="text/javascript">
-                swal({
-                    title: "Bienvenido !",
-                    text: "Acceso correcto.",
-                    icon: "success",
-                    button: "Aceptar",
-                }).then(function() {
-                    window.location = "../view/index.php";
-                });
-                </script>
-        ';
+                header('location: ../view/index.php');
 
                 #header('location: ../view/index.php');
                 

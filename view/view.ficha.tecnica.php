@@ -104,7 +104,7 @@
                         <div class="item form-group">
                           <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Ficha Técnica PDF</label>
                           <div class="col-md-6 col-sm-6 ">
-                            <input id="middle-name" value="" name="archivo" required class="form-control" type="file" accept="pdf">
+                            <input id="middle-name" value="" name="archivo" required class="form-control" type="file" accept="application/pdf">
                           </div>
 
                         </div>
@@ -180,10 +180,10 @@
                             $resultado = mysqli_query($mysqli, $busqueda);
                         while($fila = mysqli_fetch_array($resultado)){
                           echo "
-                          <tr>
+                          <tr class='text-capitalize'>
                             <td>{$fila['item']}</td>
                             <td> {$fila['upc']}</td>
-                            <td> {$fila['modelo']}</td>
+                            <td class='text-uppercase'> {$fila['modelo']}</td>
                             <td> {$fila['solicitado_por']}</td>
              
                             ";
@@ -202,10 +202,38 @@
                                    </td>";
                              }
 
-                          echo "
-                            <td>Acciones</td>
-                          </tr>
-                          ";   
+                             echo "
+                             <td>
+                                <form class='form-inline' action='../controller/controller.acciones.fichas.php' method='POST'>
+                                <span class='' data-toggle='tooltip' data-placement='top' 
+                                title='Ver'>
+                                 <a class=' btn btn-outline-primary btn-sm' href='https://discoverycenterpa.net/fitec/fichas/{$fila['archivo']}'
+                                   target='_blank'rel='noopener noreferrer'>
+                                     <i class='fas fa-eye'></i>
+                                 </a>
+                                 </span>
+   
+                                 <span class='' data-toggle='tooltip' data-placement='top' 
+                                 title='Actualizar'>
+                                 <a class=' btn btn-outline-success btn-sm' 
+                                 href='view.actualiza.ficha.tecnica.php?id={$fila['id']}'>
+                                   <i class='fas fa-redo'></i>
+                               </a>
+                               </span>
+
+                               <input hidden type='number' name='id' value='{$fila['id']}'>
+                               <span class='' data-toggle='tooltip' data-placement='top' 
+                               title='Borrar'>
+                                   <button class='btn btn-outline-danger btn-sm' type='submit' name='accion' value='borrar'>
+                                     <i class='far fa-trash-alt'></i>        
+                                   </button>
+                                </span>
+   
+                                 </form>
+   
+                                </td>
+                             </tr>
+                             ";    
                         }
 
                       }else {
@@ -221,7 +249,7 @@
                           <tr class='text-capitalize'>
                             <td>{$fila['item']}</td>
                             <td> {$fila['upc']}</td>
-                            <td> {$fila['modelo']}</td>
+                            <td lass='text-uppercase'> {$fila['modelo']}</td>
                             <td> {$fila['solicitado_por']}</td>
                    
                             ";
@@ -251,7 +279,7 @@
                                   <i class='fas fa-eye'></i>
                               </a>
                               </span>
-
+                              <input hidden type='number' name='id' value='{$fila['id']}'>
                               <span class='' data-toggle='tooltip' data-placement='top' 
                               title='Actualizar'>
                               <a class=' btn btn-outline-success btn-sm' 
@@ -276,7 +304,7 @@
                             } # Fin del while
                       }
                     ?>
-                                    </tbody>
+                </tbody>
                 <tfoot>
                     <tr>
                         <th>Item</th>
