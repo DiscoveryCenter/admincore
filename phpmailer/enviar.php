@@ -1,4 +1,11 @@
 <?php
+  require_once "header.php";
+  @session_start();
+  if (!isset($_SESSION['role']) && $_SESSION['role'] != "SuperAdmin" ) {
+    # Reedirigir al login si la sesion no existe
+     header ("location: ../index.php");
+    }
+    
 use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\Exception; 
 use PHPMailer\PHPMailer\SMTP; 
@@ -14,24 +21,24 @@ $mail = new PHPMailer(true);
 
 try {
     //Server settings
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+    #$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
     $mail->isSMTP();                                            // Send using SMTP
     $mail->Host       = 'mail.discoverycenterpa.net ';                    // Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
     $mail->Username   = 'newsletter@discoverycenterpa.net';                     // SMTP username
     $mail->Password   = 'iQk6aJ5_V_W[';                               // SMTP password
-    #$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-    $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+    #$mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
     $mail->Port       = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
     //Recipients
-    $mail->setFrom('newsletter@discoverycenterpa.net', 'Fichas T&eacute;cnicas');
+    $mail->setFrom('newsletter@discoverycenterpa.net', 'Fichas Técnicas');
     $mail->addAddress('info@discoverycenterpa.com', 'Info Discovery');     // Add a recipient
 
 
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Nueva ficha técnica disponible !';
+    $mail->Subject = '🔥🔥🔥 Nueva ficha técnica disponible !';
     $mail->Body    = 'El sistema automatizado de gesti&oacute;n de fichas tecnicas FITEC, le informa que ya se encuentra disponible la ficha técnica:<br><br>
     Nombre: <b>'.$nombreProducto.'</b> <br>
     UPC: <b>'.$codigoProducto.'</b> <br>
