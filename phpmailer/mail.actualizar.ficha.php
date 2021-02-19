@@ -32,6 +32,7 @@ try {
 
     //Recipients
     $mail->setFrom('newsletter@discoverycenterpa.net', 'Fichas Técnicas');
+    $mail->setFrom('newsletter@discoverycenterpa.net', 'Fichas Técnicas');
     $mail->AddCC('dipsa7@discoverycenterpa.com', 'ILIANA FUENMAYOR');
     $mail->AddCC('dipsa8@discoverycenterpa.com', 'DENIA MENDOZA');
     $mail->AddCC('dipsa4@discoverycenterpa.com', 'YADISEL CUCHARRO');
@@ -46,7 +47,9 @@ try {
     $mail->AddCC('dipsa2@discoverycenterpa.com', 'YURIBETH CASTILLO');
     $mail->AddCC('dipsa16@discoverycenterpa.com', 'ANARKELIS PATIÑO');
     $mail->AddCC('info@discoverycenterpa.com', 'Info Discovey Center');
-    $mail->AddCC('marketing@discoverycenterpa.com', 'Vianka Robles');
+    $mail->AddCC('marketing@discoverycenterpa.com', 'Vianka Robles'); 
+    $mail->AddCC('fernanl@discoverycenterpa.com', 'Fernan Luque'); 
+    $mail->AddCC('eggis@discoverycenterpa.com', 'Eggis'); 
 
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
