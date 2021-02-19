@@ -33,7 +33,7 @@ try {
 
     //Recipients
     $mail->setFrom('newsletter@discoverycenterpa.net', 'Fichas Técnicas');
-    $mail->addAddress('info@discoverycenterpa.com', 'Info Discovery');     // Add a recipient
+    $mail->addAddress('ventas@discoverycenterpa.net', 'Ventas');     // Add a recipient
 
 
     // Content
