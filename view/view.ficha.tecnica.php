@@ -218,7 +218,7 @@
                               while($fila = mysqli_fetch_array($resultado)){
                               
                                 echo "
-                          <tr>
+                          <tr class='text-capitalize'>
                             <td>{$fila['item']}</td>
                             <td> {$fila['upc']}</td>
                             <td> {$fila['modelo']}</td>
