@@ -1,5 +1,4 @@
 <?php
-  require_once "header.php";
   @session_start();
   if (!isset($_SESSION['role']) && $_SESSION['role'] != "SuperAdmin" ) {
     # Reedirigir al login si la sesion no existe
@@ -33,7 +32,21 @@ try {
 
     //Recipients
     $mail->setFrom('newsletter@discoverycenterpa.net', 'Fichas Técnicas');
-    $mail->addAddress('ventas@discoverycenterpa.net', 'Ventas');     // Add a recipient
+    $mail->AddCC('dipsa7@discoverycenterpa.com', 'ILIANA FUENMAYOR');
+    $mail->AddCC('dipsa8@discoverycenterpa.com', 'DENIA MENDOZA');
+    $mail->AddCC('dipsa4@discoverycenterpa.com', 'YADISEL CUCHARRO');
+    $mail->AddCC('mayby@discoverycenterpa.com', 'MAYBY HERRERA');
+    $mail->AddCC('dipsa15@discoverycenterpa.com', 'MILAGRO TORRES');
+    $mail->AddCC('safety1@discoverycenterpa.com', 'ELCID LEZCANO');
+    $mail->AddCC('orisvv@muresa.com', 'ORIS VILLARREAL');
+    $mail->AddCC('ferminag@discoverycenterpa.com', 'FERMINA GRAEL');
+    $mail->AddCC('dipsa10@discoverycenterpa.com', 'MARTA CORTES');
+    $mail->AddCC('ventas_dipsa@discoverycenterpa.com', 'HONORIO SAMANIEGO');
+    $mail->AddCC('arnulfo@discoverycenterpa.com', 'ARNULFO GONZÁLEZ');
+    $mail->AddCC('dipsa2@discoverycenterpa.com', 'YURIBETH CASTILLO');
+    $mail->AddCC('dipsa16@discoverycenterpa.com', 'ANARKELIS PATIÑO');
+    $mail->AddCC('info@discoverycenterpa.com', 'Info Discovey Center');
+    $mail->AddCC('marketing@discoverycenterpa.com', 'Vianka Robles');
 
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
