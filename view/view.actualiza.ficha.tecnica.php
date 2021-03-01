@@ -7,16 +7,23 @@ if (!isset($_SESSION['role']) && $_SESSION['role'] != "SuperAdmin" ) {
 }
 
 if(isset($_GET['id'])){
+
   require_once ("../model/conexion.php");
   $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
   $consulta = "SELECT * FROM fichastecnicas WHERE id = '$id' ";
 
   $mostrar = mysqli_query($mysqli, $consulta);
+  $numerar = mysqli_num_rows($mostrar);
+    if ($numerar == 1) {
+      # code...
       $fila = mysqli_fetch_assoc($mostrar);
+    }else {
+      # code...
+      header("location: ../view/view.ficha.tecnica.php");
+    }
   
-
-}else {
+    }else {
   header("location: ../view/view.ficha.tecnica.php");
 }
 
@@ -88,7 +95,7 @@ $(function() {
                         <div class="col-md-6 col-sm-6 ">
                           <input hidden type="number" name ="id" value="<?php echo $id;?>">
                           <input type="text"  value="<?php echo $fila['item'];?>" name="nombreProducto"
-                          placeholder="<?php echo $fila['item'];?>" required="required" 
+                          placeholder="" required="required" 
                           class="form-control parsley-succes text-capitalize" data-parsley-id="5">
                         </div>
                         </div>
@@ -120,7 +127,7 @@ $(function() {
                         </div>
                         <div class="item form-group">
                           <label for="solicitadoPor" class="col-form-label col-md-3 col-sm-3 label-align">Solicitado por:</label>
-                          <div class="col-md-6 col-sm-6 ">
+                          <div class="col-md-6 col-sm-6 text-capitalize">
                             <input id="middle-name" value="<?php echo $fila['solicitado_por'];?>" name="solicitadoPor"
                              placeholder="Ej: Jefferson Espinoza" class="form-control text-capitalize" type="text" data-parsley-id="9">
                           </div>
@@ -128,7 +135,7 @@ $(function() {
                         <div class="item form-group">
                           <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Ficha Técnica PDF</label>
                           <div class="col-md-6 col-sm-6 ">
-                            <input id="middle-name" type="file" value="pdf" name="archivo" class="form-control"  accept="">
+                            <input id="middle-name" type="file" value="" name="archivo" class="form-control"  accept="">
                           </div>
 
                         </div>

@@ -53,7 +53,7 @@ try {
 
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = '🔥🔥🔥 Nueva ficha técnica disponible !';
+    $mail->Subject = '🔥🔥🔥 Nueva ficha técnica disponible '.$nombreProducto.' !';
     $mail->Body    = 'El sistema automatizado de gesti&oacute;n de fichas tecnicas FITEC, le informa que ya se encuentra disponible la ficha técnica:<br><br>
     Nombre: <b>'.$nombreProducto.'</b> <br>
     UPC: <b>'.$codigoProducto.'</b> <br>

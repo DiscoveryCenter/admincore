@@ -38,6 +38,7 @@ if ($post) {
     $codigoProducto = str_replace(' ', '', $_POST['codigoProducto']);
     $codigoProducto = filter_input(INPUT_POST, 'codigoProducto', FILTER_SANITIZE_NUMBER_INT);
     $modeloProducto = filter_input(INPUT_POST, 'modeloProducto', FILTER_SANITIZE_STRING);
+    $modeloProducto = strtoupper($modeloProducto);
     $estadoProducto = filter_input(INPUT_POST, 'estadoProducto', FILTER_SANITIZE_STRING);
     $verificar = filter_input(INPUT_POST, 'verificar', FILTER_SANITIZE_STRING);
     $solicitadoPor = filter_input(INPUT_POST, 'solicitadoPor', FILTER_SANITIZE_STRING);

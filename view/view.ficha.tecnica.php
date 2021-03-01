@@ -184,7 +184,7 @@
                             <td>{$fila['item']}</td>
                             <td> {$fila['upc']}</td>
                             <td class='text-uppercase'> {$fila['modelo']}</td>
-                            <td> {$fila['solicitado_por']}</td>
+                            <td class= 'text-capitalize'> {$fila['solicitado_por']}</td>
              
                             ";
                             if($fila['estado_contenido'] === "Verificado"){
@@ -249,8 +249,8 @@
                           <tr class='text-capitalize'>
                             <td>{$fila['item']}</td>
                             <td> {$fila['upc']}</td>
-                            <td lass='text-uppercase'> {$fila['modelo']}</td>
-                            <td> {$fila['solicitado_por']}</td>
+                            <td class='text-uppercase'> {$fila['modelo']}</td>
+                            <td class='text-capitalize'> {$fila['solicitado_por']}</td>
                    
                             ";
                             if($fila['estado_contenido'] === "Verificado"){

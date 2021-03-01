@@ -32,7 +32,6 @@ try {
 
     //Recipients
     $mail->setFrom('newsletter@discoverycenterpa.net', 'Fichas Técnicas');
-    $mail->setFrom('newsletter@discoverycenterpa.net', 'Fichas Técnicas');
     $mail->AddCC('dipsa7@discoverycenterpa.com', 'ILIANA FUENMAYOR');
     $mail->AddCC('dipsa8@discoverycenterpa.com', 'DENIA MENDOZA');
     $mail->AddCC('dipsa4@discoverycenterpa.com', 'YADISEL CUCHARRO');
@@ -53,7 +52,7 @@ try {
 
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = '🚀 Ficha técnica actualizada !';
+    $mail->Subject = '🚀 Ficha técnica actualizada '.$nombreProducto.' !';
     $mail->Body    = 'El sistema automatizado de gestión de fichas técnicas FITEC, le informa que se ha actualizado una ficha técnica:<br><br>
     Nombre: <b>'.$nombreProducto.'</b> <br>
     UPC: <b>'.$codigoProducto.'</b> <br>
